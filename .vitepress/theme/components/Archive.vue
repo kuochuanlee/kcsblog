@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../../data/posts.data.ts'
 
 const postsByYear = computed(() => {
@@ -23,7 +24,7 @@ const postsByYear = computed(() => {
       <div class="posts-list">
         <div v-for="post in group.posts" :key="post.url" class="post-item">
           <span class="post-date">{{ new Date(post.date.time).toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' }) }}</span>
-          <a :href="post.url" class="post-link">{{ post.title }}</a>
+          <a :href="withBase(post.url)" class="post-link">{{ post.title }}</a>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../../data/posts.data.ts'
 
 const selectedTag = ref<string | null>(null)
@@ -48,7 +49,7 @@ function selectTag(tagName: string) {
       <div class="posts-list">
         <div v-for="post in filteredPosts" :key="post.url" class="post-row">
           <span class="post-date">{{ new Date(post.date.time).toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }) }}</span>
-          <a :href="post.url" class="post-link">{{ post.title }}</a>
+          <a :href="withBase(post.url)" class="post-link">{{ post.title }}</a>
         </div>
       </div>
     </div>

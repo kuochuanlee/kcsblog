@@ -60,4 +60,4 @@ tags: [Vue, CSS, 日記]
 
 ## 📄 授權 (License)
 
-Released under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE.md).
