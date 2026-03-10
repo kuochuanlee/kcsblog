@@ -1,0 +1,78 @@
+/* ==========================================================================
+   KC's Blog - 導覽列顏色優化 (增強夜間模式對比)
+   ========================================================================== */
+
+:root {
+  /* 日間：明亮的淺灰 */
+  --kc-nav-bg-light: rgba(245, 245, 245, 0.85);
+  /* 夜間：稍微調亮一點的鋼鐵灰，確保與全黑背景有區隔 */
+  --kc-nav-bg-dark: rgba(50, 50, 50, 0.8);
+}
+
+/* 1. 基礎強制覆蓋 */
+html body .VPNavBar {
+  background-color: var(--kc-nav-bg-light) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  /* 抹除內建變數干擾 */
+  --vp-nav-bg-color: transparent !important;
+}
+
+/* 2. 夜間模式：顯著的灰色差異 */
+html.dark body .VPNavBar {
+  background-color: var(--kc-nav-bg-dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* 確保夜間模式下內建變數不會跑出來 */
+  --vp-nav-bg-color: transparent !important;
+}
+
+/* 3. 確保所有子容器背景透明 */
+html body .VPNavBar .wrapper,
+html body .VPNavBar .container,
+html body .VPNavBar .content,
+html body .VPNavBar .content-body {
+  background-color: transparent !important;
+}
+
+/* 4. 標題與排版 (保持先前設定) */
+html body .VPNavBarTitle {
+  margin-left: 3rem !important;
+}
+
+/* 加大加粗 KC's Blog 標題 */
+html body .VPNavBarTitle .title {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+@media (min-width: 960px) {
+  html body .VPNavBar .content-body {
+    display: flex !important;
+    justify-content: flex-start !important;
+    flex-grow: 1 !important;
+  }
+
+  /* 搜尋框與選單緊隨標題 (左側排列) */
+  html body .VPNavBar .VPNavBarSearch {
+    order: -2 !important;
+    margin-left: 2rem !important;
+    margin-right: 0 !important;
+  }
+
+  html body .VPNavBar .VPNavBarMenu {
+    order: -1 !important;
+    margin-left: 1rem !important;
+    margin-right: auto !important; /* 將社交連結推向最右側 */
+  }
+
+  /* 日夜切換與社交連結 (右側排列) */
+  html body .VPNavBar .VPNavBarAppearance,
+  html body .VPNavBar .VPNavBarSocialLinks {
+    order: 1 !important;
+  }
+}
+
+html body .VPNavBarSearch {
+  margin-left: 1rem;
+}
