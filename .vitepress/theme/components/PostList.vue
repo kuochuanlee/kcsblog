@@ -12,9 +12,15 @@ import { data as posts } from '../../data/posts.data.ts'
         <span class="post-divider">•</span>
         <span class="post-reading-time">{{ post.readingTime }} 分鐘閱讀</span>
       </div>
-      <p v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></p>
-      <div v-if="post.tags.length" class="post-tags">
-        <span v-for="tag in post.tags" :key="tag" class="post-tag">#{{ tag }}</span>
+      <div v-if="post.excerpt" class="post-excerpt">
+        {{ post.excerpt }}
+      </div>
+      
+      <div class="post-footer">
+        <a :href="withBase(post.url)" class="read-more">閱讀全文 →</a>
+        <div v-if="post.tags.length" class="post-tags">
+          <span v-for="tag in post.tags" :key="tag" class="post-tag">#{{ tag }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -25,13 +31,13 @@ import { data as posts } from '../../data/posts.data.ts'
   margin-top: 2rem;
 }
 .post-item {
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 .post-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--vp-c-brand-1);
   text-decoration: none;
   transition: color 0.2s;
@@ -42,16 +48,43 @@ import { data as posts } from '../../data/posts.data.ts'
 .post-meta {
   font-size: 0.875rem;
   color: var(--vp-c-text-2);
-  margin: 0.5rem 0;
+  margin: 0.6rem 0 1rem;
 }
 .post-divider {
   margin: 0 0.5rem;
 }
 .post-excerpt {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.8;
   color: var(--vp-c-text-1);
-  margin: 0.75rem 0;
+  margin: 1rem 0 1.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.read-more {
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 6px;
+}
+.read-more:hover {
+  background-color: var(--vp-c-brand-1);
+  color: white !important;
+  text-decoration: none;
 }
 .post-tags {
   display: flex;
