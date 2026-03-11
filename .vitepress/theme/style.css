@@ -48,6 +48,22 @@ html body .VPNavBar .content-body {
 /* 4. 標題與排版 */
 html body .VPNavBarTitle {
   margin-left: 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Logo 縮圖優化 */
+html body .VPNavBarTitle .logo {
+  height: 32px !important;
+  width: 32px !important;
+  margin-right: 0.8rem !important;
+  border-radius: 50% !important; /* 讓圖片更像個精緻的縮圖 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease !important;
+}
+
+html body .VPNavBarTitle:hover .logo {
+  transform: scale(1.1) rotate(5deg) !important; /* 滑過時的小互動 */
 }
 
 /* 加大加粗 KC's Blog 標題 */

@@ -11,6 +11,7 @@ export default defineConfig({
     hostname: 'https://yourname.github.io' // 部署後請修改為實際 URL
   },
   themeConfig: {
+    logo: '/logo.png',
     search: {
       provider: 'local',
       options: {
