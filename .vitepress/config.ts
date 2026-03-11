@@ -6,6 +6,7 @@ export default defineConfig({
   description: "技術隨筆與生活點滴",
   cleanUrls: true,
   lastUpdated: true,
+  srcExclude: ['README.md', 'GEMINI.md', 'LICENSE.md'],
   sitemap: {
     hostname: 'https://yourname.github.io' // 部署後請修改為實際 URL
   },
@@ -13,6 +14,34 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        miniSearch: {
+          options: {
+            tokenize: (str) => {
+              const tokens = new Set<string>()
+              // 使用 Intl.Segmenter 進行初步分詞
+              const segmenter = new Intl.Segmenter('zh-TW', { granularity: 'word' })
+              for (const { segment, isWordLike } of segmenter.segment(str)) {
+                if (isWordLike) {
+                  tokens.add(segment.toLowerCase())
+                  // 針對中文字符，額外拆解成單字索引（提高匹配成功率）
+                  if (/\p{Script=Han}/u.test(segment)) {
+                    for (const char of segment) {
+                      tokens.add(char.toLowerCase())
+                    }
+                  }
+                }
+              }
+              return Array.from(tokens)
+            },
+            process: (term) => term.toLowerCase(),
+          },
+          searchOptions: {
+            boost: { title: 10, titles: 5, text: 1 }, // 大幅提升主標題權重
+            fuzzy: 0.2,
+            prefix: true,
+            combineWith: 'AND' // 必須匹配所有關鍵字，搜尋結果會更精確
+          }
+        },
         translations: {
           button: {
             buttonText: '搜尋文件',

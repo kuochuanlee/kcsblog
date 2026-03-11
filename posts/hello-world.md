@@ -5,7 +5,7 @@ tags: [VitePress, Vue, Blog]
 categories: [技術]
 ---
 
-# 哈囉世界！
+# 哈囉！這是我的第一篇 VitePress 文章
 
 歡迎來到我的極簡部落格。這是使用 **VitePress** 建立的第一篇文章。
 
