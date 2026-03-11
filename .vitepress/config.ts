@@ -7,6 +7,9 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ['README.md', 'GEMINI.md', 'LICENSE.md'],
+  head: [
+    ['meta', { name: 'robots', content: 'noindex' }]
+  ],
   sitemap: {
     hostname: 'https://kuochuanlee.github.io/kcsblog/'
   },
