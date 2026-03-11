@@ -9,7 +9,7 @@ template = """
 檔名請將標題轉換為適合 URL 的格式（例如：`My New Post` -> `my-new-post.md`）。
 
 文章內容必須包含：
-1. 正確的 Frontmatter（包含 title: {{args}}, date: 當前系統的日期時間 YYYY-MM-DD HH:mm, categories, tags）。
+1. 正確的 Frontmatter（包含 title: {{args}}, date: 當前日期時間 YYYY-MM-DD HH:mm, categories, tags）。
 2. 一段引人入勝的摘要（excerpt）。
 3. 基本文章架構（包含 H1 標題、至少兩個 H2 次標題）。
 4. 內容請使用繁體中文。
