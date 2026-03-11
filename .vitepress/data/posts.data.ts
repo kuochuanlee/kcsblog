@@ -48,13 +48,15 @@ export default createContentLoader('posts/*.md', {
 
 function formatDate(raw: string | number | Date) {
   const date = new Date(raw)
-  date.setUTCHours(12)
   return {
     time: +date,
     string: date.toLocaleDateString('zh-TW', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
     })
   }
 }

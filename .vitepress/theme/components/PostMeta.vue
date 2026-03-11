@@ -12,7 +12,10 @@ const dateString = computed(() => {
   return new Date(date).toLocaleDateString('zh-TW', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
   })
 })
 const isFunctionalPage = computed(() => {

@@ -1,6 +1,6 @@
 ---
 title: 哈囉！這是我的第一篇 VitePress 文章
-date: 2026-03-10
+date: 2026-03-10 10:20
 tags: [VitePress, Vue, Blog]
 categories: [技術]
 ---
