@@ -1,12 +1,25 @@
 /* ==========================================================================
-   KC's Blog - 導覽列顏色優化 (增強夜間模式對比)
+   KC's Blog - 顏色優化 (暖調奶茶灰系)
    ========================================================================== */
 
 :root {
-  /* 日間：明亮的淺灰 */
-  --kc-nav-bg-light: rgba(245, 245, 245, 0.85);
-  /* 夜間：稍微調亮一點的鋼鐵灰，確保與全黑背景有區隔 */
-  --kc-nav-bg-dark: rgba(50, 50, 50, 0.8);
+  /* 品牌色覆蓋：奶茶灰 (Milk Tea Gray / Taupe) */
+  --vp-c-brand-1: #8e8071; /* 主要品牌色：深奶茶灰 */
+  --vp-c-brand-2: #7a6e61; /* 滑過時：稍深的奶茶灰 */
+  --vp-c-brand-3: #665c52;
+  --vp-c-brand-soft: rgba(142, 128, 113, 0.1);
+
+  /* 導覽列優化 (帶有極細微暖色的灰色) */
+  --kc-nav-bg-light: rgba(245, 242, 240, 0.85);
+  --kc-nav-bg-dark: rgba(50, 48, 46, 0.8);
+}
+
+/* 夜間模式顏色調整：淺奶茶灰 */
+html.dark {
+  --vp-c-brand-1: #c5b9ac;
+  --vp-c-brand-2: #dcd2c7;
+  --vp-c-brand-3: #ede6de;
+  --vp-c-brand-soft: rgba(197, 185, 172, 0.1);
 }
 
 /* 1. 基礎強制覆蓋 */
@@ -14,7 +27,6 @@ html body .VPNavBar {
   background-color: var(--kc-nav-bg-light) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  /* 抹除內建變數干擾 */
   --vp-nav-bg-color: transparent !important;
 }
 
@@ -22,7 +34,6 @@ html body .VPNavBar {
 html.dark body .VPNavBar {
   background-color: var(--kc-nav-bg-dark) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  /* 確保夜間模式下內建變數不會跑出來 */
   --vp-nav-bg-color: transparent !important;
 }
 
@@ -34,7 +45,7 @@ html body .VPNavBar .content-body {
   background-color: transparent !important;
 }
 
-/* 4. 標題與排版 (保持先前設定) */
+/* 4. 標題與排版 */
 html body .VPNavBarTitle {
   margin-left: 3rem !important;
 }
@@ -44,6 +55,13 @@ html body .VPNavBarTitle .title {
   font-size: 1.5rem !important;
   font-weight: 800 !important;
   letter-spacing: -0.02em !important;
+  /* 稍微調淺一點的深奶茶色 */
+  color: #5d5349 !important; 
+}
+
+/* 夜間模式：稍微調柔一點的奶茶奶油色 */
+html.dark body .VPNavBarTitle .title {
+  color: #e8ded5 !important;
 }
 
 @media (min-width: 960px) {
@@ -63,7 +81,7 @@ html body .VPNavBarTitle .title {
   html body .VPNavBar .VPNavBarMenu {
     order: -1 !important;
     margin-left: 1rem !important;
-    margin-right: auto !important; /* 將社交連結推向最右側 */
+    margin-right: auto !important;
   }
 
   /* 日夜切換與社交連結 (右側排列) */
