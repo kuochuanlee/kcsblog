@@ -28,6 +28,12 @@ export default createContentLoader('posts/*.md', {
           ? excerpt.replace(/<[^>]+>/g, '') 
           : (src || '').replace(/[#*`]/g, '').replace(/---[\s\S]*?---/, '').trim().slice(0, 600)
 
+        // 清除不可見字符如 Zero Width Space (\u200b) 以及常見的轉義符號
+        const cleanExcerpt = contentExcerpt
+          .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
+          .replace(/&ZeroWidthSpace;|&#8203;/g, '')
+          .trim()
+
         // 計算閱讀時間 (以每分鐘 300 字為基準)
         const wordCount = (src || '').length
         const readingTime = Math.ceil(wordCount / 300) || 1
@@ -35,7 +41,7 @@ export default createContentLoader('posts/*.md', {
         return {
           title: frontmatter.title,
           url,
-          excerpt: contentExcerpt + '...',
+          excerpt: cleanExcerpt + '...',
           date: formatDate(frontmatter.date),
           tags: frontmatter.tags || [],
           categories: frontmatter.categories || [],
