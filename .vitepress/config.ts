@@ -8,7 +8,7 @@ export default defineConfig({
   lastUpdated: true,
   srcExclude: ['README.md', 'GEMINI.md', 'LICENSE.md'],
   sitemap: {
-    hostname: 'https://yourname.github.io' // 部署後請修改為實際 URL
+    hostname: 'https://kuochuanlee.github.io/kcsblog/'
   },
   themeConfig: {
     logo: '/logo.png',
