@@ -64,7 +64,8 @@ export default defineConfig({
       { text: '首頁', link: '/' },
       { text: '歸檔', link: '/archive' },
       { text: '分類', link: '/categories' },
-      { text: '標籤', link: '/tags' }
+      { text: '標籤', link: '/tags' },
+      { text: '關於', link: '/about' }
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/' }
