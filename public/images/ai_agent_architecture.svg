@@ -1,0 +1,113 @@
+<svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --text-color: #3d3d3a;
+      --border-color: #3d3d3a;
+      --bg-box: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-color: #e0e0e0;
+        --border-color: #888888;
+        --bg-box: #1a1a1a;
+      }
+    }
+    /* VitePress specific dark mode class support */
+    .dark :root {
+      --text-color: #e0e0e0;
+      --border-color: #888888;
+      --bg-box: #1a1a1a;
+    }
+    text { fill: var(--text-color); font-family: sans-serif; }
+    line, rect, path { stroke: var(--border-color); }
+    .label-bg { fill: var(--bg-box); stroke: var(--border-color); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Labels: AI = LLM + Agent -->
+  <text x="36" y="32" font-size="12">AI = LLM + Agent</text>
+
+  <!-- Agent boundary (dashed) -->
+  <rect x="28" y="48" width="420" height="490" rx="14" fill="none" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <text x="36" y="558" font-size="12">Agent 邊界（傳統程式框架）</text>
+
+  <!-- Agent label badge -->
+  <rect x="36" y="56" width="64" height="26" rx="6" class="label-bg" stroke-width="1"/>
+  <text x="68" y="73" text-anchor="middle" font-size="12">Agent</text>
+
+  <!-- LLM box (purple) -->
+  <g>
+    <rect x="64" y="90" width="340" height="80" rx="10" fill="#eeedfe" stroke="#534ab7" stroke-width="0.5"/>
+    <text x="234" y="124" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" style="fill:#3c3489">LLM（主腦）</text>
+    <text x="234" y="148" text-anchor="middle" dominant-baseline="central" font-size="12" style="fill:#534ab7">接收文字輸入 → 只能輸出文字 / 結構化訊號</text>
+  </g>
+
+  <!-- Arrow: LLM -> 執行控制 -->
+  <line x1="234" y1="170" x2="234" y2="220" marker-end="url(#arrow)" stroke-width="1.5"/>
+  <text x="248" y="195" font-size="12">function call 訊號</text>
+  <text x="248" y="210" font-size="12">(文字輸出，包含工具名稱＋參數)</text>
+
+  <!-- Arrow: 工具結果 回 LLM -->
+  <path d="M404 280 Q450 280 450 170 Q450 130 404 130" fill="none" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="454" y="206" font-size="12">工具</text>
+  <text x="454" y="220" font-size="12">結果</text>
+
+  <!-- 執行控制 box (teal) -->
+  <g>
+    <rect x="64" y="222" width="340" height="70" rx="10" fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+    <text x="234" y="250" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" style="fill:#085041">執行控制（Agent 邏輯）</text>
+    <text x="234" y="272" text-anchor="middle" dominant-baseline="central" font-size="12" style="fill:#0f6e56">解析訊號 → 路由決策 → 管理對話歷程</text>
+  </g>
+
+  <!-- Arrow: 執行控制 -> 對外窗口 -->
+  <line x1="234" y1="292" x2="234" y2="402" marker-end="url(#arrow)" stroke-width="1.5"/>
+
+  <!-- Arrow: 執行控制 -> MCP Server -->
+  <path d="M404 257 L500 257" fill="none" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="410" y="248" font-size="12">MCP 協議</text>
+
+  <!-- 對外窗口 box (blue) -->
+  <g>
+    <rect x="64" y="404" width="340" height="70" rx="10" fill="#e6f1fb" stroke="#185fa5" stroke-width="0.5"/>
+    <text x="234" y="432" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" style="fill:#0c447c">對外窗口（I/O）</text>
+    <text x="234" y="452" text-anchor="middle" dominant-baseline="central" font-size="12" style="fill:#185fa5">接收使用者輸入、輸出最終回覆</text>
+  </g>
+
+  <!-- Arrow: 對外窗口 -> 人 -->
+  <line x1="234" y1="474" x2="234" y2="540" marker-end="url(#arrow)" stroke-width="1.5"/>
+  <text x="234" y="562" text-anchor="middle" font-size="12">人</text>
+
+  <!-- MCP Server -->
+  <g>
+    <rect x="502" y="228" width="154" height="70" rx="10" fill="#faeeda" stroke="#854f0b" stroke-width="0.5"/>
+    <text x="579" y="256" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" style="fill:#633806">MCP Server</text>
+    <text x="579" y="278" text-anchor="middle" dominant-baseline="central" font-size="12" style="fill:#854f0b">提供外部工具給 Agent</text>
+  </g>
+
+  <!-- Arrow: MCP Server -> 外部服務 -->
+  <line x1="579" y1="298" x2="579" y2="345" marker-end="url(#arrow)" stroke-width="1.5"/>
+  <text x="585" y="325" font-size="12">呼叫外部</text>
+
+  <!-- 外部服務 box (coral) -->
+  <g>
+    <rect x="502" y="347" width="154" height="220" rx="10" fill="#faece7" stroke="#993c1d" stroke-width="0.5"/>
+    <text x="579" y="372" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" style="fill:#712b13">外部服務</text>
+  </g>
+  <!-- 外部服務 items -->
+  <rect x="518" y="385" width="122" height="30" rx="6" class="label-bg" stroke-width="0.5"/>
+  <text x="579" y="404" text-anchor="middle" dominant-baseline="central" font-size="12">瀏覽器</text>
+  <rect x="518" y="423" width="122" height="30" rx="6" class="label-bg" stroke-width="0.5"/>
+  <text x="579" y="441" text-anchor="middle" dominant-baseline="central" font-size="12">檔案系統</text>
+  <rect x="518" y="461" width="122" height="30" rx="6" class="label-bg" stroke-width="0.5"/>
+  <text x="579" y="479" text-anchor="middle" dominant-baseline="central" font-size="12">Gmail / Slack...</text>
+  <rect x="518" y="499" width="122" height="30" rx="6" class="label-bg" stroke-width="0.5"/>
+  <text x="579" y="517" text-anchor="middle" dominant-baseline="central" font-size="12">資料庫 / API...</text>
+
+  <!-- Note annotation -->
+  <text x="502" y="192" font-size="12">▲ Agent 邊界外</text>
+  <line x1="530" y1="197" x2="545" y2="226" stroke-dasharray="3 3" stroke-width="0.5"/>
+</svg>
