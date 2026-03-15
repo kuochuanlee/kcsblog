@@ -1,7 +1,11 @@
 import { defineConfig } from 'vitepress'
 
+// 判斷是否在 Vercel 環境部署
+const isVercel = process.env.VERCEL === '1'
+
 export default defineConfig({
-  base: '/kcsblog/',
+  // Vercel 部署在根目錄 /，GitHub Pages 與本地開發則在 /kcsblog/
+  base: isVercel ? '/' : '/kcsblog/',
   title: "KC's Blog",
   description: "技術隨筆與生活點滴",
   cleanUrls: true,
@@ -11,7 +15,7 @@ export default defineConfig({
     ['meta', { name: 'robots', content: 'noindex' }]
   ],
   sitemap: {
-    hostname: 'https://kuochuanlee.github.io/kcsblog/'
+    hostname: isVercel ? 'https://kcsblog-cpef.vercel.app/' : 'https://kuochuanlee.github.io/kcsblog/'
   },
   themeConfig: {
     logo: '/logo.png',
