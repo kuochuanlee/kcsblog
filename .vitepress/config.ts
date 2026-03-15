@@ -15,7 +15,7 @@ export default defineConfig({
     ['meta', { name: 'robots', content: 'noindex' }]
   ],
   sitemap: {
-    hostname: isVercel ? 'https://kcsblog-cpef.vercel.app/' : 'https://kuochuanlee.github.io/kcsblog/'
+    hostname: isVercel ? 'https://kcsblog.vercel.app/' : 'https://kuochuanlee.github.io/kcsblog/'
   },
   themeConfig: {
     logo: '/logo.png',

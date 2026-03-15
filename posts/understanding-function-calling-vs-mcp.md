@@ -7,7 +7,7 @@ tags: [AI, Function Calling, MCP, 協議]
 
 在 AI 代理 (AI Agents) 與大型語言模型 (LLM) 蓬勃發展的今天，「Function Calling」與 「Model Context Protocol (MCP)」是兩個頻繁出現的概念。雖然它們都涉及 LLM 與外部世界的互動，但其設計層次與解決的問題範疇卻大不相同。
 
-## 我的理解與架構圖
+## 個人理解與架構圖
 ```
 AI包含兩部分(LLM + Agent)。
 
