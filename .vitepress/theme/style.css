@@ -12,6 +12,9 @@
   /* 導覽列優化 (帶有極細微暖色的灰色) */
   --kc-nav-bg-light: rgba(245, 242, 240, 0.85);
   --kc-nav-bg-dark: rgba(50, 48, 46, 0.8);
+
+  /* 標題專用色 (設定與內文主色一致) */
+  --kc-title-color: var(--vp-c-text-1);
 }
 
 /* 夜間模式顏色調整：淺奶茶灰 */
@@ -20,6 +23,13 @@ html.dark {
   --vp-c-brand-2: #dcd2c7;
   --vp-c-brand-3: #ede6de;
   --vp-c-brand-soft: rgba(197, 185, 172, 0.1);
+}
+
+/* 文章標題樣式統一 */
+.VPDoc h1 {
+  color: var(--kc-title-color) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
 }
 
 /* 1. 基礎強制覆蓋 */
