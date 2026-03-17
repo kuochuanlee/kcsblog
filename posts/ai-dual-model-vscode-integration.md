@@ -7,7 +7,7 @@ tags: [VS Code, Gemini, Claude, 協作開發]
 
 # 原始問題：
 
-VS code + Gemini CLI 有辦法對接Claude chat，讓兩個AI自行對話自動完成開發專案嗎？我的想法是Gemini cli當程式員主要是實作和debug 改code，Claude chat則是架構師和審查員，負責設計架構和提供規格
+VS code + Gemini CLI 有辦法對接 Claude chat，讓兩個AI自行對話自動完成開發專案嗎？我的想法是 Gemini cli 當程式員主要是實作和debug 改code，Claude chat 則是架構師和審查員，負責設計架構和提供規格，並審核 Gemini CLI 的每一步檔案修改，當有輸入或輸出的需求選擇時，或實作方案的選擇時，會主動徵詢開發者意見。
 
 # **雙模型協作開發的架構演進：以 Claude 與 Gemini 為核心的自動化代理環境研究報告**
 
