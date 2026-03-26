@@ -6,6 +6,7 @@ import Archive from './components/Archive.vue'
 import Tags from './components/Tags.vue'
 import Categories from './components/Categories.vue'
 import PostMeta from './components/PostMeta.vue'
+import AIDictionary from './components/AIDictionary.vue'
 import './style.css'
 
 export default {
@@ -21,5 +22,6 @@ export default {
     app.component('Archive', Archive)
     app.component('Tags', Tags)
     app.component('Categories', Categories)
+    app.component('AIDictionary', AIDictionary)
   }
 } satisfies Theme
