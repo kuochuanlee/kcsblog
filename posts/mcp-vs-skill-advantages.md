@@ -46,13 +46,17 @@ tags: [MCP, Skill, AI Agents, 協議]
 |---|---|---|---|---|
 | **bash_tool** | 本地系統工具 | `ffmpeg`, `pandoc`, `libreoffice` | 無 | 需有 bash_tool 環境 |
 | **bash_tool** | Python/Node 套件 | `openpyxl`, `playwright` | 無 | 需有 bash_tool 環境 |
-| **bash_tool** | 程式內打 REST API（無用戶資料） | requests 打 Gemini API, GPT API | API Key 寫在程式裡 | LLM 先寫程式才能執行 |
-| **bash_tool** | 程式內打 REST API（有用戶私人資料） | requests 打 Gmail API | OAuth 完整流程在程式裡跑 | LLM 先寫程式，token 對 Claude 可見 |
-| **bash_tool** | 程式內用 SDK / 框架 | Gemini SDK, LangChain | 同上，SDK 幫組規格 | LLM 先寫程式才能執行 |
-| **web_fetch** | 直接打 REST API（無用戶資料） | 直接打 Gemini API | LLM 自己組 header 帶 API Key | 不能自組 URL，受平台限制 |
-| **web_fetch** | 直接打 REST API（有用戶私人資料） | 直接打 Gmail API | 需事先拿好 token 塞 header，無法自己跑 OAuth | token 對 Claude 可見 |
-| **MCP** | 外部服務 | Gmail, Calendar, Notion | 連接時處理，Claude 看不到憑證 | 需平台支援 MCP |
+| **bash_tool** 第一路 | 程式內打 REST API（無用戶資料） | requests 打 Gemini API, GPT API | LLM寫帶API Key (長效靜態token)打REST API的程式 | LLM 先寫程式才能執行，，API KEY 對 Claude 可見 |
+| **bash_tool** 第一路 | 程式內打 REST API（有用戶私人資料） | requests 打 Gmail API | LLM寫OAuth 完整流程和打 REST API的程式 | LLM 先寫程式才能執行，token 對 Claude 可見 |
+| **bash_tool** 第一路 | 程式內用 SDK / 框架 | Gemini SDK, LangChain | OAuth 完整流程在SDK裡跑，SDK 幫組規格打REST API | LLM 先寫程式才能執行，token 或 API KEY 對 Claude 可見 |
+| **web_fetch** 第二路 | 直接打 REST API（無用戶資料） | 直接打 Gemini API | LLM 自己組 header 帶 API Key | 不能自組 URL，受平台限制，API KEY 對 Claude 可見 |
+| **web_fetch** 第二路 | 直接打 REST API（有用戶私人資料） | 直接打 Gmail API | 需事先拿好 token 塞 header，web_fetch 無法 OAuth | token 對 Claude 可見 |
+| **MCP** 第三路 | 外部服務 | Gmail, Calendar, Notion | 連接時由MCP server處理，Claude 看不到憑證 | 需平台支援 MCP |
 | **Claude 內建** | 平台賦予的工具 | `web_search`, `web_fetch` | 無 | 受平台規則限制 |
+
+### Claude agent 怎麼連到外部世界的三條路
+
+<img src="/images/claude_integration_paths.svg" alt="Claude Code / Gemini CLI 對照圖" style="width: 100%; border-radius: 8px; margin: 1.5rem 0;">
 
 ---
 
