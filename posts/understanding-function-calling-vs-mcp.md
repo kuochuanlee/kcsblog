@@ -9,11 +9,11 @@ tags: [AI, Function Calling, MCP, 協議]
 
 ## 個人理解與架構圖
 ```
-AI包含兩部分(LLM + Agent)。
+Agent = LLM (大腦) + Planning (規劃) + Memory (記憶) + Tools (工具)
 
 LLM才是真正的 AI 主腦，只能輸出文字。
 
-Agent是支固定邏輯的傳統程式，一個執行框架，負責內控流程+執行工具+對外窗口 。
+Agent可能包含一個執行框架，負責內控流程+執行工具+對外窗口 。
 
 function calling 是LLM告知agent去call function執行內部工具。
 
