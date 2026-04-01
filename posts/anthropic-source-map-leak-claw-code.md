@@ -19,11 +19,12 @@ Anthropic 於 npm 發佈 Claude Code (v2.1.88) 時，CI/CD 流程未在 `.npmign
 2.  **自我修復記憶架構 (Self-Healing Memory)**：
     * 外洩代碼揭露了 Claude Code 的高穩定性來源：一套能自動偵測並修正上下文記憶矛盾的 Agent 系統。
 
-## 三、 社群反應：AI 驅動的極速「淨室重構」
+## 三、 社群反應：AI 輔助重構與「龍蝦（Claw）」迷因的延續
 原始碼外洩後，開源社群並未直接抄襲，而是利用 AI 工具鏈展現了極高效率的反向工程。
-* **合法的防護盾（思想與表達二分法）**：著作權僅保護「具體代碼（表達）」，不保護「演算法架構（思想）」。開發者利用外洩代碼提煉出架構規格。
-* **AI 自動化重寫**：透過如 OmX 等 AI Agent 協作工具，開發者在數小時內將 Claude Code 的核心邏輯以 Python 和 Rust 重新實作（如 `claw-code` 專案），完成傳統需要數月的「淨室重構 (Clean-room rewrite)」。
-* **商標與生態角力**：Anthropic 雖對第三方圖形介面 `claw-code` 發出律師函迫使其更名為 `OpenClaw`，並發起 DMCA 下架，但核心架構已在開源社群擴散。
+
+1. 極速淨室重構：透過如 OmX 等 AI Agent 協作，開發者 @instructkr 在數小時內將 Claude Code 的核心邏輯以 Python 重新實作，完成傳統需要數月的「淨室重構 (Clean-room rewrite)」以規避版權爭議。
+
+2. 「Claw」社群生態系的成形：該重構專案被命名為 claw-code。這延續了今年初另一個開源專案 OpenClaw（原名 Clawdbot，因 Anthropic 商標警告而改名並衍生出龍蝦迷因）的命名傳統。「Claw」已然成為社群中對抗或開源替代 Claude 技術的代名詞。儘管 Anthropic 正全力發起 DMCA 下架，但核心架構早已隨著這些 Claw 系專案在社群中生根發芽。
 
 ## 四、 產業與工程啟示
 1.  **發布管線審查**：生產環境部署必須嚴格攔截 `.map` 檔案，自動化 CI/CD 需加入敏感檔掃描機制。
