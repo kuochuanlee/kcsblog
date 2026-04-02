@@ -40,6 +40,8 @@ tags: [LLM, AI Agent, Claude Code, Cursor, 開發體驗, 系統工程]
 
 Agent 與 IDE 深度整合，非插件，通常是 VS Code 的 fork。
 
+| 工具 | 開發者 |
+|---|---|
 | Cursor | Cursor Inc. |
 | Antigravity | Google |
 
@@ -47,6 +49,8 @@ Agent 與 IDE 深度整合，非插件，通常是 VS Code 的 fork。
 
 Agent 以插件形式運行在現有 IDE 內（主要是 VS Code）。
 
+| 工具 | 開發者 |
+|---|---|
 | Cline | 開源社群 |
 | Roo Code | 開源社群（fork 自 Cline）|
 | GitHub Copilot | Microsoft / GitHub |
@@ -57,6 +61,8 @@ Agent 以插件形式運行在現有 IDE 內（主要是 VS Code）。
 
 Agent 運行在終端機，無 GUI，直接操作作業系統與檔案系統。
 
+| 工具 | 開發者 |
+|---|---|
 | Claude Code | Anthropic |
 | Aider | 開源社群 |
 | OpenHands（CLI 模式）| 開源社群 |
@@ -80,7 +86,7 @@ Agent 運行在終端機，無 GUI，直接操作作業系統與檔案系統。
 
 ---
 
-## 結語：選擇 Agent 比選擇模型更重要
+## 結語：Agent 比模型更重要
 
 在 2026 年的今天，LLM 的能力已經逐漸趨同。未來開發者的核心課題將不再是「哪個模型比較強」，而是：
 
