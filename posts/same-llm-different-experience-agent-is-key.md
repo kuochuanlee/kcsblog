@@ -9,11 +9,12 @@ tags: [LLM, AI Agent, Claude Code, Cursor, 開發體驗, 系統工程]
 
 你有沒有過這種感覺？
 
-同樣是調用 **Claude 4.6 Sonnet**，在不同環境開發時，似乎面對的不是同一個 AI。
+同樣調用 **Claude 4.6 Sonnet**，在不同環境開發時，似乎面對的不是同一個 AI。
 
 「底層模型不是同一個嗎？」
 
-是的，模型是同一個。但在 LLM 時代，**「模型只是引擎，Agent 才是決定整台跑車性能的關鍵。」** 真正決定開發感受的，是圍繞在模型之外的 **Agentic Workflow (代理人工作流)**。
+模型是同一個，但 **「模型只是引擎，Agent 是決定整台跑車性能的關鍵。」** 
+真正決定開發感受的，是圍繞在模型之外的 **Agentic Workflow (代理人工作流)**。
 
 ---
 
@@ -21,7 +22,7 @@ tags: [LLM, AI Agent, Claude Code, Cursor, 開發體驗, 系統工程]
 
 **LLM** 是純推理引擎——給它文字，它輸出文字。它看不到你的檔案，不能跑測試，不知道你的專案長什麼樣。
 
-**Agent** 是 LLM 的指揮系統，負責：
+**Agent** 是 LLM 的指揮系統，負責 Orchestration：
 
 - **資訊蒐集**：決定讀哪些檔案、搜尋哪些關聯程式碼
 - **Prompt 組裝**：把蒐集到的 context 打包給 LLM
@@ -39,40 +40,28 @@ tags: [LLM, AI Agent, Claude Code, Cursor, 開發體驗, 系統工程]
 
 Agent 與 IDE 深度整合，非插件，通常是 VS Code 的 fork。
 
-| 工具 | 開發者 |
-|---|---|
 | Cursor | Cursor Inc. |
 | Antigravity | Google |
-
----
 
 ### Agent 是 IDE 的插件
 
 Agent 以插件形式運行在現有 IDE 內（主要是 VS Code）。
 
-| 工具 | 開發者 |
-|---|---|
 | Cline | 開源社群 |
 | Roo Code | 開源社群（fork 自 Cline）|
 | GitHub Copilot | Microsoft / GitHub |
 | Continue | 開源社群 |
 | Aider（VS Code 整合模式）| 開源社群 |
 
----
-
 ### Agent 是 CLI
 
 Agent 運行在終端機，無 GUI，直接操作作業系統與檔案系統。
 
-| 工具 | 開發者 |
-|---|---|
 | Claude Code | Anthropic |
 | Aider | 開源社群 |
 | OpenHands（CLI 模式）| 開源社群 |
 | Codex CLI | OpenAI |
 | Gemini CLI | Google |
-
----
 
 **備註**：部分工具橫跨多類，例如 Aider 可以純 CLI 使用，也能整合進 VS Code；Claude Code 原本是純 CLI，現在也有 VS Code 插件版本。分類以其最主要的使用形式為準。
 
