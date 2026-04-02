@@ -5,6 +5,9 @@ categories: [技術, 安全]
 tags: [Anthropic, Claude Code, Source Map, 安全漏洞, claw-code, OpenClaw]
 ---
 
+## Claude Code Harness Engineering
+https://claude-code-harness-blog.vercel.app/
+
 ## 一、 洩漏根因：Source Map 打包失誤
 Anthropic 於 npm 發佈 Claude Code (v2.1.88) 時，CI/CD 流程未在 `.npmignore` 中排除除錯用的 Source Map 檔案。
 * **技術機制**：`.map` 檔案本質上是 JSON 格式，其內部的 `sourcesContent` 陣列完整保留了編譯前的原始代碼。
