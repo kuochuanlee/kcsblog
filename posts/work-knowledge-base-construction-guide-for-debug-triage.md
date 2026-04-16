@@ -156,16 +156,16 @@ owner: "CK"
 | Timeout 設定 | 10ms |
 | 復現率 | 80% |
 
-* 完整數據：[logs/20260416_WiFi_raw.log](../logs/20260416_WiFi_raw.log)
+* 完整數據：`../logs/20260416_WiFi_raw.log`
 
 # 解決方案
 與 CK 確認，Workaround：將 Timeout 參數從 10ms 放寬至 20ms。
 
 # 佐證資料
-* [與 CK 的確認信](../attachments/20260416_Email_CK_Timeout_Confirm.pdf)
+* 確認信：`../attachments/20260416_Email_CK_Timeout_Confirm.pdf`
 
 # 相關模組知識
-* [Mod_WiFi.md](../modules/Mod_WiFi.md)
+* `../modules/Mod_WiFi.md`
 ```
 
 ---
@@ -195,15 +195,15 @@ owner: "CK"
 | Disconnect 無 Log | FW 未初始化 | TV |
 
 ## 參考文獻
-* [WiFi Spec v1.2](./assets_WiFi/WiFi_Spec_v1.2.pdf)
+* `./assets_WiFi/WiFi_Spec_v1.2.pdf`
     * Key Takeaway：第 45 頁 State Machine 圖是分析斷線的核心
     * 來源：CK 提供（2026/04）
-* [暫存器讀取教學](./assets_WiFi/20260416_Reg_Read_Guide.pdf)
+* `./assets_WiFi/20260416_Reg_Read_Guide.pdf`
     * 說明：原始網頁 http://internal.wiki/xxx，存為 PDF 備份
 
 ## 相關 Issue 紀錄
-* [20260416_WiFi_Drop_0x009.md](../issues/20260416_WiFi_Drop_0x009.md)
-* [20260501_WiFi_Hang_0x021.md](../issues/20260501_WiFi_Hang_0x021.md)
+* `../issues/20260416_WiFi_Drop_0x009.md`
+* `../issues/20260501_WiFi_Hang_0x021.md`
 ```
 
 ---
