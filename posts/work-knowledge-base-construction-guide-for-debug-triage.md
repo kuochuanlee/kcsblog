@@ -299,11 +299,11 @@ kuo.git資料夾，.git是命名慣例
 git init --bare
 ```
 kuo是本地資料夾，應對到雲端硬碟kuo.git
-將遠端備份節點取名為 backup_kuo，一般取名為 origin
+將遠端備份節點一般取名為 origin
 -u（--set-upstream）的意思是「建立預設追蹤」
 
 本地端電腦 D:\kuo
 ```powershell
-git remote add backup_kuo I:\我的雲端硬碟\backup_nas\kuo.git
-git push -u backup_kuo main
+git remote add origin I:\我的雲端硬碟\backup_nas\kuo.git
+git push -u origin main
 ```
