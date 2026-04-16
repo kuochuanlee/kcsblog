@@ -286,3 +286,24 @@ git push backup_nas master
 | .gitignore、腳本 | ✅ | 同上 |
 | 原始 Log 大檔 | ❌ | xcopy → NAS 獨立資料夾 |
 | 實驗 CSV 大檔 | ❌ | xcopy → NAS 獨立資料夾 |
+
+
+## Git 設定實例
+
+backup_nas是新建命名的資料夾，當作遠端git倉庫
+kuo.git資料夾，.git是命名慣例
+--bare唯讀純倉庫
+
+雲端硬碟 I:\我的雲端硬碟\backup_nas> cd kuo.git
+```powershell
+git init --bare
+```
+kuo是本地資料夾，應對到雲端硬碟kuo.git
+將遠端備份節點取名為 backup_kuo，一般取名為 origin
+-u（--set-upstream）的意思是「建立預設追蹤」
+
+本地端電腦 D:\kuo
+```powershell
+git remote add backup_kuo I:\我的雲端硬碟\backup_nas\kuo.git
+git push -u backup_kuo main
+```
