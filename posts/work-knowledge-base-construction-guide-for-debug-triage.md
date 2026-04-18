@@ -70,6 +70,12 @@ YYYYMMDD_專案/平台_現象描述_錯誤碼.md
 
 ## 建議的 Git 知識庫目錄結構
 
+### Commit message 可以加前綴規範
+- Add:    新增 issue 或 module
+- Update: 補充資訊、更新狀態
+- Fix:    修正筆記錯誤
+- Close:  Issue 標記為 Resolved
+
 ```
 My_Debug_KB/
 │
@@ -112,6 +118,13 @@ My_Debug_KB/
 - 列出所有 Module 的連結
 - 列出近期處理中的 Issue
 - 記錄整體知識庫的使用規範與欄位說明
+- 每次 issue status 改為 Resolved，必須回頭確認 Mod_XXX.md 的「常見病徵對照表」是否需要新增一行。
+
+```
+## 🔴 WIP Issues，可以用 parse_yaml.py 來生成這區塊
+ [20260416 WiFi Drop](./issues/20260416_WiFi_Drop_0x009.md) — 等 CK 回覆
+ [20260501 Audio Crash](./issues/20260501_Audio_DSP_Crash.md) — 待復現
+```
 
 ---
 
@@ -122,17 +135,22 @@ My_Debug_KB/
 logs/
 *.log
 *.db
+*.csv        # 實驗數據大檔
+*.zip
+*.7z
+__pycache__/
 ```
 
 ---
 
 ### `issues/` — Issue 紀錄（每案一檔）
-
+- issues/ 旁邊放一個 _template_issue.md，新增時避免欄位漏填。
 **每個 `.md` 檔的結構：**
 
 ```markdown
 ---
-date: 2026-04-16
+opened_date: 2026-04-10
+resolved_date: 2026-04-16
 platform: MTK_Chip_X
 symptom: "WiFi random disconnect under heavy load"
 error_code: "ERR_WLAN_099"
@@ -146,9 +164,9 @@ owner: "CK"
 
 # 關鍵 Log 節錄
 (最核心的 3~5 行，不要貼千行)
-```log
+
 [ERR] WLAN Timeout at 0x099, retry failed
-```
+
 
 # 實驗數據
 | 參數 | 數值 |
@@ -171,7 +189,7 @@ owner: "CK"
 ---
 
 ### `modules/` — Module 知識地圖（長期累積）
-
+- modules/ 旁邊放一個 _template_module.md，新增時避免欄位漏填。
 **每個 `Mod_XXX.md` 的結構：**
 
 ```markdown
